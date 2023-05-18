@@ -12,7 +12,7 @@ The official code of JVCI 2023 paper ([DCAM: Disturbed Class Activation Maps for
 ```
 
 ## Prerequisite
-- Python 3.6, PyTorch 1.9, and others in environment.yml
+- Python 3.8, PyTorch 1.12.1, and others in environment.yml
 - You can create the environment from environment.yml file
 ```
 conda env create -f environment.yml
