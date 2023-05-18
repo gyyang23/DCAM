@@ -50,7 +50,7 @@ if __name__ == '__main__':
     parser.add_argument("--dcam_learning_rate", default=0.0005, type=float)
 
     # DCAM_SCE
-    parser.add_argument("--dcam_sce_num_epoches", default=1, type=int)
+    parser.add_argument("--dcam_sce_num_epoches", default=4, type=int)
     parser.add_argument("--dcam_sce_learning_rate", default=0.0005, type=float)
     parser.add_argument("--dcam_sce_loss_weight", default=1.0, type=float)
 
