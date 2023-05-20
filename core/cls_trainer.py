@@ -27,7 +27,7 @@ class ClsTrainer:
             print('LOAD CHECKPOINT:', model_path)
             print('-' * 40)
             checkpoint = torch.load(model_path, map_location=torch.device(device))
-            self.model.load_state_dict(checkpoint['model'], strict=True)
+            self.model.load_state_dict(checkpoint, strict=True)
 
         self.criterion.to(device)
         self.model = torch.nn.DataParallel(self.model).to(device)

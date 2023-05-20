@@ -43,8 +43,8 @@ def _modify_feature_map(module, inputs, outputs):
     noise = torch.randn(outputs.shape).to(outputs.device)
     # noise = torch.normal(mean=0, std=3, size=outputs.shape).to(outputs.device)
 
-    p = np.array([0, 1])
-    random = torch.tensor([np.random.choice([0.3, 0.7], p=p.ravel()) for i in range(outputs.shape[1])]).to(outputs.device)
+    p = np.array([0.3, 0.7])
+    random = torch.tensor([np.random.choice([0, 1], p=p.ravel()) for i in range(outputs.shape[1])]).to(outputs.device)
     random = torch.unsqueeze(torch.unsqueeze(random, -1), -1)
     noise = noise * random
 

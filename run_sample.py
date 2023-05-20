@@ -28,7 +28,7 @@ if __name__ == '__main__':
     # Dataset
     parser.add_argument("--train_list", default="voc12/train_aug.txt", type=str)
     parser.add_argument("--val_list", default="voc12/val.txt", type=str)
-    parser.add_argument("--infer_list", default="voc12/train_aug.txt", type=str,
+    parser.add_argument("--infer_list", default="voc12/train.txt", type=str,
                         help="voc12/train_aug.txt to train a fully supervised model, "
                              "voc12/train.txt or voc12/val.txt to quickly check the quality of the labels.")
     parser.add_argument("--chainer_eval_set", default="train", type=str)
@@ -38,7 +38,7 @@ if __name__ == '__main__':
     parser.add_argument("--feature_dim", default=2048, type=int)
     parser.add_argument("--cam_crop_size", default=512, type=int)
     parser.add_argument("--cam_batch_size", default=16, type=int)
-    parser.add_argument("--cam_num_epoches", default=4, type=int)
+    parser.add_argument("--cam_num_epoches", default=5, type=int)
     parser.add_argument("--cam_learning_rate", default=0.1, type=float)
     parser.add_argument("--cam_weight_decay", default=1e-4, type=float)
     parser.add_argument("--cam_eval_thres", default=0.21, type=float)
@@ -47,10 +47,10 @@ if __name__ == '__main__':
 
     # DCAM
     parser.add_argument("--dcam_num_epoches", default=1, type=int)
-    parser.add_argument("--dcam_learning_rate", default=0.0005, type=float)
+    parser.add_argument("--dcam_learning_rate", default=0.0008, type=float)
 
     # DCAM_SCE
-    parser.add_argument("--dcam_sce_num_epoches", default=1, type=int)
+    parser.add_argument("--dcam_sce_num_epoches", default=4, type=int)
     parser.add_argument("--dcam_sce_learning_rate", default=0.0005, type=float)
     parser.add_argument("--dcam_sce_loss_weight", default=1.0, type=float)
 
@@ -126,7 +126,7 @@ if __name__ == '__main__':
     pyutils.Logger(args.log_name + '.log')
     print(vars(args))
 
-    os.environ["CUDA_VISIBLE_DEVICES"] = '1'
+    os.environ["CUDA_VISIBLE_DEVICES"] = '0, 1'
 
     if args.train_cam_pass is True:
         import step.train_cam

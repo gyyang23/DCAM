@@ -21,8 +21,6 @@ class Net(nn.Module):
         self.stage2 = nn.Sequential(self.resnet50.layer2)
         self.stage3 = nn.Sequential(self.resnet50.layer3)
         self.stage4 = nn.Sequential(self.resnet50.layer4)
-        # self.test = nn.Sequential(nn.Conv2d(2048, 2048, 1, bias=False),
-        #                           nn.ReLU())
 
         self.n_classes = n_classes
 
@@ -30,8 +28,8 @@ class Net(nn.Module):
         self.classifier2 = nn.Conv2d(2048, self.n_classes, 1, bias=False)
 
         self.backbone = nn.ModuleList([self.stage1, self.stage2, self.stage3, self.stage4])
-        self.newly_added = nn.ModuleList([self.classifier])
-        self.recam_predictor = nn.ModuleList([self.classifier2])
+        self.dcam = nn.ModuleList([self.classifier])
+        self.dcam_sce = nn.ModuleList([self.classifier2])
 
     def forward(self, x):
 
@@ -58,8 +56,8 @@ class Net(nn.Module):
     def trainable_parameters(self):
 
         return (list(self.backbone.parameters()),
-                list(self.newly_added.parameters()),
-                list(self.recam_predictor.parameters()))
+                list(self.dcam.parameters()),
+                list(self.dcam_sce.parameters()))
 
 
 class Net_CAM(Net):
@@ -146,7 +144,7 @@ class CAM(Net):
         x = self.stage2(x)
         x = self.stage3(x)
         x = self.stage4(x)
-        x = F.conv2d(x,  weight + self.classifier.weight)
+        x = F.conv2d(x,  weight * self.classifier.weight)
 
         if separate:
             return x

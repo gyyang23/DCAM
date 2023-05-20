@@ -34,7 +34,7 @@ def _work(process_id, model, dataset, args):
             strided_up_size = imutils.get_strided_up_size(size, 16)
 
             weights = model.classifier2.weight
-            outputs = [model.forward1(img[0].cuda(non_blocking=True), weights) for img in pack['img']]  # b x 20 x w x h
+            outputs = [model.forward2(img[0].cuda(non_blocking=True), weights) for img in pack['img']]  # b x 20 x w x h
 
             strided_cam = torch.sum(torch.stack(
                 [F.interpolate(torch.unsqueeze(o, 0), strided_size, mode='bilinear', align_corners=False)[0] for o in
