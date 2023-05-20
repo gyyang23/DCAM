@@ -1,4 +1,4 @@
-name: recam
+name: dcam
 channels:
   - pytorch
   - nvidia
