@@ -1,5 +1,5 @@
 # DCAM
-The official code of JVCI 2023 paper ([DCAM: Disturbed Class Activation Maps for Weakly Supervised Semantic Segmentation]([https:](https://www.sciencedirect.com/science/article/pii/S1047320323001025?via%3Dihub))).
+The official code of JVCI 2023 paper ([DCAM: Disturbed Class Activation Maps for Weakly Supervised Semantic Segmentation](https://www.sciencedirect.com/science/article/pii/S1047320323001025?via%3Dihub)).
 
 ## Citation
 ```
