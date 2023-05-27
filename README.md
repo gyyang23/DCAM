@@ -3,11 +3,13 @@ The official code of JVCI 2023 paper ([DCAM: Disturbed Class Activation Maps for
 
 ## Citation
 ```
-@inproceedings{recam,
-  title={DCAM: Disturbed Class Activation Maps for Weakly Supervised Semantic Segmentation},
-  author={},
-  booktitle={},
-  year={2023}
+@article{2023dcam,
+  title={DCAM: Disturbed class activation maps for weakly supervised semantic segmentation},
+  author={Lei, Jie and Yang, Guoyu and Wang, Shuaiwei and Feng, Zunlei and Liang, Ronghua},
+  journal={Journal of Visual Communication and Image Representation},
+  pages={103852},
+  year={2023},
+  publisher={Elsevier}
 }
 ```
 
